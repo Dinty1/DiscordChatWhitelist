@@ -7,6 +7,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public final class DiscordChatWhitelist extends JavaPlugin {
@@ -25,11 +26,14 @@ public final class DiscordChatWhitelist extends JavaPlugin {
     @Subscribe
     public void onDiscordMessagePreBroadcast(DiscordGuildMessagePreBroadcastEvent event) {
         final List<String> allowedWorlds = this.getConfig().getStringList("allowed-worlds");
+        final List<Player> recipientsToRemove = new ArrayList<>();
 
         for (final CommandSender commandSender : event.getRecipients()) {
             final Player player = this.getServer().getPlayer(commandSender.getName());
             if (player == null) return;
-            if (!allowedWorlds.contains(player.getWorld().getName())) event.getRecipients().remove(commandSender);
+            if (!allowedWorlds.contains(player.getWorld().getName())) recipientsToRemove.add(player);
         }
+
+        event.getRecipients().removeAll(recipientsToRemove);
     }
 }
