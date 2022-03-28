@@ -1,0 +1,4 @@
+# Worlds where Discord messages should be broadcast to
+allowed-worlds:
+  - world1
+  - world2

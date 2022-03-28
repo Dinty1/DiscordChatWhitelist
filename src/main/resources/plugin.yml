@@ -1,0 +1,7 @@
+name: DiscordChatWhitelist
+version: '${project.version}'
+main: io.github.dinty1.discordchatwhitelist.DiscordChatWhitelist
+api-version: 1.15
+depend: [ DiscordSRV ]
+authors: [ Dinty1 ]
+description: Restricts DiscordSRV Discord->Minecraft messages to certain worlds
