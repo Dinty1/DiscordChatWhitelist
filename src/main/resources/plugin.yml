@@ -1,6 +1,6 @@
-name: DiscordChatWhitelist
+name: DiscordChatWorldWhitelist
 version: '${project.version}'
-main: io.github.dinty1.discordchatwhitelist.DiscordChatWhitelist
+main: io.github.dinty1.discordchatworldwhitelist.DiscordChatWorldWhitelist
 api-version: 1.15
 depend: [ DiscordSRV ]
 authors: [ Dinty1 ]
